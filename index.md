@@ -10,7 +10,7 @@ language: "english"     # lowercase two-letter ISO language code such as "fr" (s
 latitude: ""        # decimal latitude of workshop venue (use https://www.latlong.net/)
 longitude: ""       # decimal longitude of the workshop venue (use https://www.latlong.net)
 humandate: "1st March 2021"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
-humantime: "9am - 5pm"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
+humantime: "9am - 5pm (GMT)"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
 startdate: 2021-03-01      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: 2021-03-01        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
 instructor: ["James Derrick"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
@@ -198,37 +198,6 @@ Modify the block below if there are any special requirements.
 </p>
 
 {% comment %}
-ACCESSIBILITY
-
-Modify the block below if there are any barriers to accessibility or
-special instructions.
-{% endcomment %}
-<p id="accessibility">
-  <strong>Accessibility:</strong>
-{% if online == "false" %}
-  We are committed to making this workshop
-  accessible to everybody. The workshop organizers have checked that:
-</p>
-<ul>
-  <li>The room is wheelchair / scooter accessible.</li>
-  <li>Accessible restrooms are available.</li>
-</ul>
-<p>
-  Materials will be provided in advance of the workshop and
-  large-print handouts are available if needed by notifying the
-  organizers in advance.  If we can help making learning easier for
-  you (e.g. sign-language interpreters, lactation facilities) please
-  get in touch (using contact details below) and we will
-  attempt to provide them.
-</p>
-{% else %}
-  We are dedicated to providing a positive and accessible learning environment for all. Please
-  notify the instructors in advance of the workshop if you require any accommodations or if there is
-  anything we can do to make this workshop more accessible to you.
-</p>
-{% endif %}
-
-{% comment %}
 CONTACT EMAIL ADDRESS
 
 Display the contact email address set in the configuration file.
@@ -273,12 +242,13 @@ Edit the text to match who can attend the workshop. For instance:
 - This workshop is open to the public.
 - If you are interested in attending this workshop, contact me@example.com
   for more information
+{% endcomment %}
 
 <p id="who-can-attend">
     <strong>Who can attend?:</strong>
-    This workshop is open to ....
+    This workshop is open to Ansys employees.
 </p>
-{% endcomment %}
+
 
 <hr/>
 
@@ -297,29 +267,6 @@ Everyone who participates in Carpentries activities is required to conform to th
   </a>
 </p>
 <hr/>
-
-
-{% comment %}
-Collaborative Notes
-
-If you want to use an Etherpad, go to
-
-https://pad.carpentries.org/YYYY-MM-DD-site
-
-where 'YYYY-MM-DD-site' is the identifier for your workshop,
-e.g., '2015-06-10-esu'.
-
-Note we also have a CodiMD (the open-source version of HackMD)
-available at https://codimd.carpentries.org
-{% endcomment %}
-{% if page.collaborative_notes %}
-<h2 id="collaborative_notes">Collaborative Notes</h2>
-
-<p>
-We will use this <a href="{{ page.collaborative_notes }}">collaborative document</a> for chatting, taking notes, and sharing URLs and bits of code.
-</p>
-<hr/>
-{% endif %}
 
 
 {% comment %}
@@ -411,9 +358,6 @@ If you do not use Zoom for your online workshop, edit the file
 `_includes/install_instructions/videoconferencing.html`
 to include the relevant installation instrucctions.
 {% endcomment %}
-{% if online != "false" %}
-{% include install_instructions/videoconferencing.html %}
-{% endif %}
 
 {% comment %}
 These are the installation instructions for the tools used
